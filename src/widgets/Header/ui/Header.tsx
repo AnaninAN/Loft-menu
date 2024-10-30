@@ -16,9 +16,19 @@ export const Header = (props: HeaderProps) => {
   return (
     <div className={classNames(cls.header, {}, [className])}>
       <AppContainer>
-        <AppText title="Loft BAR" size="size_l" className={cls.logo} />
-        <AppText title="|" size="size_l" className={cls.separator} />
-        <AppText title={table} className={cls.table} />
+        <AppText
+          theme="primary_inverted"
+          title="Loft BAR"
+          size="size_l"
+          className={cls.logo}
+        />
+        <AppText
+          theme="primary_inverted"
+          title="|"
+          size="size_l"
+          className={cls.separator}
+        />
+        <AppText theme="primary_inverted" title={table} className={cls.table} />
         <LangSwitcher className={cls.select} />
       </AppContainer>
     </div>
