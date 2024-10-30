@@ -14,7 +14,10 @@ export const Header = (props: HeaderProps) => {
   const { className, table } = props;
 
   return (
-    <div className={classNames(cls.header, {}, [className])}>
+    <div
+      data-testid="header"
+      className={classNames(cls.header, {}, [className])}
+    >
       <AppContainer>
         <AppText
           theme="primary_inverted"

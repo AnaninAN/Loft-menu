@@ -12,6 +12,7 @@ i18n
     fallbackLng: 'ru',
     //debug: __IS_DEV__,
     debug: false,
+    defaultNS: 'translation',
 
     interpolation: {
       escapeValue: false,
