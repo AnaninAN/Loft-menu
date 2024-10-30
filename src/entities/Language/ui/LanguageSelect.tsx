@@ -18,8 +18,8 @@ export const LanguageSelect = memo((props: LanguageSelectProps) => {
 
   const options = useMemo(
     (): SelectOption<Language>[] => [
-      { value: 'RU', content: t('RU') },
-      { value: 'EN', content: t('EN') },
+      { value: 'ru', content: t('ru') },
+      { value: 'en', content: t('en') },
     ],
     [t]
   );

@@ -3,16 +3,17 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+export const lng = 'ru';
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    lng: 'ru',
-    fallbackLng: 'ru',
+    lng,
+    fallbackLng: lng,
     //debug: __IS_DEV__,
     debug: false,
-    defaultNS: 'translation',
 
     interpolation: {
       escapeValue: false,

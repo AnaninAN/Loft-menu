@@ -8,6 +8,7 @@ export interface BuildPaths {
   output: string;
   html: string;
   locales: string;
+  buildLocales: string;
 }
 
 export interface BuildOptions {
