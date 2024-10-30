@@ -1,0 +1,13 @@
+.header {
+  width: 100%;
+  height: var(--header-height);
+  background: var(--inverted-bg-color);
+
+  .separator {
+    margin: 0 5px;
+  }
+
+  .select {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,15 @@
+.appContentPage {
+  flex-grow: 1;
+  overflow-y: auto;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+
+  .contentPageHeader {
+    height: var(--header-height);
+  }
+
+  .contentPageFooter {
+    height: var(--footer-height);
+  }
+}
