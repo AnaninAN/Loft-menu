@@ -4,6 +4,7 @@ import { AppContainer } from '@/shared/ui/AppContainer';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppText } from '@/shared/ui/AppText';
 import { LangSwitcher } from '@/widgets/LangSwitcher';
+import { ThemSwitcher } from '@/widgets/ThemSwitcher';
 
 interface HeaderProps {
   className?: string;
@@ -32,7 +33,8 @@ export const Header = (props: HeaderProps) => {
           className={cls.separator}
         />
         <AppText theme="primary_inverted" title={table} className={cls.table} />
-        <LangSwitcher className={cls.select} />
+        <LangSwitcher className={cls.selectLang} />
+        <ThemSwitcher className={cls.selectTheme} />
       </AppContainer>
     </div>
   );

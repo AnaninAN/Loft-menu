@@ -1,8 +1,10 @@
 {
   "ru": "RU",
   "en": "EN",
-  "specify-language": "Выбирите язык",
+  "specify-language": "Выберите язык",
   "table1": "Стол 1",
   "not-found-page": "Страница не найдена",
-  "footer": "Подвал"
+  "footer": "Подвал",
+  "light": "LIGHT",
+  "dark": "DARK"
 }

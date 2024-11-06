@@ -6,7 +6,7 @@ import i18next from 'eslint-plugin-i18next';
 
 export default [
   {
-    ignores: ['.fttemplates/**/*', '**/i18nForTests.ts'],
+    ignores: ['.fttemplates/**/*', '**/i18nForTests.ts', 'stories/**/*'],
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
