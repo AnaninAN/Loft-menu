@@ -23,7 +23,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
-      <Header table={tableTranslate['table5']} />
+      <Header table={tableTranslate['table1']} />
     </div>
   );
 };
