@@ -14,13 +14,13 @@ type Story = StoryObj<typeof meta>;
 
 export const HeaderLigth: Story = {
   args: {
-    table: 'table5',
+    table: 'Стол 5',
   },
 };
 
 export const HeaderDark: Story = {
   args: {
-    table: 'table3',
+    table: 'Стол 5',
   },
   globals: {
     theme: Theme.DARK,

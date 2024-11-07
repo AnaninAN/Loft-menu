@@ -2,11 +2,11 @@ import { PropsWithChildren } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-interface AppPageProps {
+interface PageProps {
   className?: string;
 }
 
-export const Page = (props: PropsWithChildren<AppPageProps>) => {
+export const Page = (props: PropsWithChildren<PageProps>) => {
   const { children, className } = props;
 
   return (
