@@ -1,10 +1,11 @@
-const { promisify } = require('util');
-const { readdir, writeFile } = require('fs');
-const { join: joinPath, relative } = require('path');
+import { promisify } from 'util';
+import { readdir, writeFile } from 'fs';
+import { relative, joinPath } from 'path';
 
 const asyncReaddir = promisify(readdir);
 const writeFileAsync = promisify(writeFile);
 
+// eslint-disable-next-line no-undef
 const lokiDir = joinPath(__dirname, '..', '.loki');
 const actualDir = joinPath(lokiDir, 'current');
 const expectedDir = joinPath(lokiDir, 'reference');

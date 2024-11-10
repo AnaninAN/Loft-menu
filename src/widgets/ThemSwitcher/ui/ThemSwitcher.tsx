@@ -11,7 +11,7 @@ interface ThemSwitcherProps {
 
 export const ThemSwitcher = ({ className }: ThemSwitcherProps) => {
   useTranslation;
-  const { t } = useTranslation('translation');
+  const { t } = useTranslation();
   const { toggleTheme, theme } = useTheme();
 
   const options = useMemo(

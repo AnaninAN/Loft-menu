@@ -1,14 +1,14 @@
-import { Story, StoryContext } from '@storybook/react';
+import { Decorator, StoryContext } from '@storybook/react';
 import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
 
-export function RouterDecorator(
-  StoryComponent: Story,
+export const RouterDecorator: Decorator = (
+  Story,
   { parameters: { router } }: StoryContext
-) {
+) => {
   if (!router) {
     return (
       <BrowserRouter>
-        <StoryComponent />
+        <Story />
       </BrowserRouter>
     );
   }
@@ -17,8 +17,8 @@ export function RouterDecorator(
   return (
     <MemoryRouter initialEntries={[encodeURI(route)]}>
       <Routes>
-        <Route path={path} element={<StoryComponent />} />
+        <Route path={path} element={<Story />} />
       </Routes>
     </MemoryRouter>
   );
-}
+};

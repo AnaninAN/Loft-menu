@@ -2,13 +2,14 @@
   "ru": "RU",
   "en": "EN",
   "specify-language": "Выберите язык",
-  "table1": "Стол 1",
-  "table2": "Стол 2",
-  "table3": "Стол 3",
-  "table4": "Стол 4",
-  "table5": "Стол 5",
+  "table": "Стол",
   "not-found-page": "Страница не найдена",
   "footer": "Подвал",
   "light": "LIGHT",
-  "dark": "DARK"
+  "dark": "DARK",
+  "menu": {
+    "main": "Меню",
+    "chat": "Менеджер",
+    "check": "Мой счет"
+  }
 }

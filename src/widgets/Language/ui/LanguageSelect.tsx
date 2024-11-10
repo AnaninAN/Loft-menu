@@ -14,7 +14,7 @@ interface LanguageSelectProps {
 export const LanguageSelect = memo((props: LanguageSelectProps) => {
   const { className, onChange, readonly, value } = props;
 
-  const { t } = useTranslation('translation');
+  const { t } = useTranslation();
 
   const options = useMemo(
     (): SelectOption<Language>[] => [

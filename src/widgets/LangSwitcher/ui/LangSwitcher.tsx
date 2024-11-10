@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Language, LanguageSelect } from '@/entities/Language';
+import { Language, LanguageSelect } from '@/widgets/Language';
 import { lng } from '@/shared/config/i18n/i18n';
 
 interface LangSwitcherProps {

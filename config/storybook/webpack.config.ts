@@ -1,4 +1,4 @@
-import { Configuration, ProvidePlugin } from 'webpack';
+import { Configuration, DefinePlugin, ProvidePlugin } from 'webpack';
 import path from 'path';
 
 import { BuildPaths } from '../build/types/config';
@@ -26,6 +26,26 @@ export default ({ config }: { config: Configuration }) => {
       React: 'react',
     })
   );
+
+  config.plugins!.push(
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+    })
+  );
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  config.module!.rules = config?.module?.rules?.map((rule: any) => {
+    if (/svg/.test(rule.test as string)) {
+      return { ...rule, exclude: /\.svg$/i };
+    }
+
+    return rule;
+  });
+
+  config.module!.rules!.push({
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  });
 
   config.module?.rules?.push(buildCssLoader(true));
 
