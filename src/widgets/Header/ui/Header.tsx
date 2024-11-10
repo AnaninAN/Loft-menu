@@ -10,12 +10,13 @@ import { ThemSwitcher } from '@/widgets/ThemSwitcher';
 
 interface HeaderProps {
   className?: string;
+  logo: string | null;
   table: string | null;
 }
 
 export const Header = (props: HeaderProps) => {
   const { t } = useTranslation();
-  const { className, table } = props;
+  const { className, table, logo } = props;
 
   return (
     <div
@@ -25,7 +26,7 @@ export const Header = (props: HeaderProps) => {
       <AppContainer>
         <AppText
           theme="primary_inverted"
-          title="Loft BAR"
+          title={logo}
           size="size_l"
           className={cls.logo}
         />
