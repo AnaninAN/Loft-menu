@@ -15,14 +15,13 @@ interface AppSelectProps<T extends string> {
   options?: SelectOption<T>[];
   value?: T;
   onChange?: (value: T) => void;
-  readonly?: boolean;
 }
 
 const typedMemo: <T>(c: T) => T = memo;
 
 export const AppSelect = typedMemo(
   <T extends string>(props: AppSelectProps<T>) => {
-    const { className, label, onChange, options, readonly, value } = props;
+    const { className, label, onChange, options, value } = props;
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
       onChange?.(e.target.value as T);
@@ -41,12 +40,7 @@ export const AppSelect = typedMemo(
     return (
       <div className={classNames(cls.wrapper, {}, [className])}>
         {label && <span className={cls.label}>{`${label}: `}</span>}
-        <select
-          disabled={readonly}
-          className={cls.select}
-          value={value}
-          onChange={onChangeHandler}
-        >
+        <select className={cls.select} value={value} onChange={onChangeHandler}>
           {optionsList}
         </select>
       </div>

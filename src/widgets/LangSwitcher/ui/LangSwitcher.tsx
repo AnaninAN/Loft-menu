@@ -1,25 +1,32 @@
-import { useEffect, useState } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Language, LanguageSelect } from '@/widgets/Language';
-import { lng } from '@/shared/config/i18n/i18n';
+import { AppSelect, SelectOption } from '@/shared/ui/AppSelect';
+import type { Language } from '@/shared/types/language';
+import { useLang } from '@/shared/lib/hooks/useLang/useLang';
 
-interface LangSwitcherProps {
+interface LanguageSwitcherProps {
   className?: string;
 }
 
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
-  const { i18n } = useTranslation();
+export const LangSwitcher = memo(({ className }: LanguageSwitcherProps) => {
+  const { t } = useTranslation();
+  const { value, toggleLang } = useLang();
 
-  const [lngState, setLngState] = useState<Language>(lng);
+  const options = useMemo(
+    (): SelectOption<Language>[] => [
+      { value: 'ru', content: t('ru') },
+      { value: 'en', content: t('en') },
+    ],
+    [t]
+  );
 
-  useEffect(() => {
-    i18n.changeLanguage(lngState);
-  }, [lngState]);
-
-  const onChange = (value: string) => {
-    setLngState(value as Language);
-  };
-
-  return <LanguageSelect onChange={onChange} className={className} />;
-};
+  return (
+    <AppSelect
+      className={className}
+      onChange={toggleLang}
+      options={options}
+      value={value}
+    />
+  );
+});
