@@ -83,3 +83,22 @@
   opacity: 0.5;
   cursor: auto;
 }
+
+.close {
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 4px;
+    background: var(--inverted-bg-color);
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}

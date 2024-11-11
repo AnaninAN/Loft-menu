@@ -32,6 +32,7 @@ export const MenuItem = memo((props: MenuItemProps) => {
       theme="primary"
       to={item.path}
       className={cls.menuItem}
+      link={item.text !== 'MENU_CHAT'}
       onClick={() => onClick(item.text)}
     >
       <AppIcon Svg={item.Icon} className={cls.icon} theme="primary" />

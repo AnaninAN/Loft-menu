@@ -19,6 +19,7 @@ export interface AppButtonProps
   className?: string;
   theme?: AppButtonTheme;
   square?: boolean;
+  close?: boolean;
   size?: AppButtonSize;
   disabled?: boolean;
   children?: ReactNode;
@@ -32,6 +33,7 @@ export const AppButton = memo((props: AppButtonProps) => {
     square,
     disabled,
     size = 'size_m',
+    close = false,
     ...otherProps
   } = props;
 
@@ -40,7 +42,7 @@ export const AppButton = memo((props: AppButtonProps) => {
       type="button"
       className={classNames(
         cls.appButton,
-        { [cls.square]: square, [cls.disabled]: disabled },
+        { [cls.square]: square, [cls.disabled]: disabled, [cls.close]: close },
         [className, cls[theme], cls[size]]
       )}
       disabled={disabled}

@@ -9,7 +9,8 @@
   "dark": "DARK",
   "menu": {
     "main": "Menu",
-    "chat": "Manager",
+    "chat": "Server",
     "check": "My check"
-  }
+  },
+  "server-message": "To call a waiter, press the button on the table"
 }

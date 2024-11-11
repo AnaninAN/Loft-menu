@@ -10,7 +10,7 @@ export const getMenuItems = () => {
 
   const menuItemsList: MenuItemType[] = [
     {
-      path: `/${table}/chat`,
+      path: `/${table}`,
       text: 'MENU_CHAT',
       Icon: ChatIcon,
     },

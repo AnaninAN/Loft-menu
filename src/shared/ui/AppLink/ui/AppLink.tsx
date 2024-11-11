@@ -1,7 +1,7 @@
 import cls from './AppLink.module.scss';
 
 import { memo, ReactNode } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link, To } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -14,24 +14,28 @@ type AppLinkTheme =
 
 type AppLinkView = 'line' | 'button';
 
-interface AppLinkProps extends LinkProps {
+interface AppLinkProps {
   className?: string;
   theme?: AppLinkTheme;
   view?: AppLinkView;
+  link?: boolean;
   children?: ReactNode;
+  to?: To;
+  onClick?: () => void;
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
   const {
-    to,
+    to = '',
     className,
     children,
     theme = 'primary',
     view = 'line',
-    ...otherProps
+    link = true,
+    onClick,
   } = props;
 
-  return (
+  return link ? (
     <Link
       to={to}
       className={classNames(cls.applink, {}, [
@@ -39,9 +43,20 @@ export const AppLink = memo((props: AppLinkProps) => {
         cls[theme],
         cls[view],
       ])}
-      {...otherProps}
+      onClick={onClick}
     >
       {children}
     </Link>
+  ) : (
+    <div
+      className={classNames(cls.applink, {}, [
+        className,
+        cls[theme],
+        cls[view],
+      ])}
+      onClick={onClick}
+    >
+      {children}
+    </div>
   );
 });

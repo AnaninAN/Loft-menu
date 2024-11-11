@@ -115,3 +115,18 @@ export const ButtonOutlineRedDark: Story = {
     theme: Theme.DARK,
   },
 };
+
+export const ButtonClose: Story = {
+  args: {
+    close: true,
+  },
+};
+
+export const ButtonCloseDark: Story = {
+  args: {
+    close: true,
+  },
+  globals: {
+    theme: Theme.DARK,
+  },
+};
