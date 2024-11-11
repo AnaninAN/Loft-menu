@@ -3,19 +3,23 @@ import cls from './MenuItem.module.scss';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Menu, MenuItemType } from '../../model/types/menu';
+import { MenuItemType, MenuList } from '../../model/types/menu';
 import { AppLink } from '@/shared/ui/AppLink';
 import { AppIcon } from '@/shared/ui/AppIcon';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface MenuItemProps {
   item: MenuItemType;
+  active: boolean;
+  onClick: (text: string) => void;
 }
 
-export const MenuItem = memo(({ item }: MenuItemProps) => {
+export const MenuItem = memo((props: MenuItemProps) => {
+  const { item, active, onClick } = props;
   const { t } = useTranslation();
 
   const menuTranslate = useMemo(
-    (): Record<Menu, string> => ({
+    (): Record<MenuList, string> => ({
       MENU_MAIN: t('menu.main'),
       MENU_CHAT: t('menu.chat'),
       MENU_CHECK: t('menu.check'),
@@ -24,9 +28,16 @@ export const MenuItem = memo(({ item }: MenuItemProps) => {
   );
 
   return (
-    <AppLink theme="primary" to={item.path} className={cls.menuItem}>
+    <AppLink
+      theme="primary"
+      to={item.path}
+      className={cls.menuItem}
+      onClick={() => onClick(item.text)}
+    >
       <AppIcon Svg={item.Icon} className={cls.icon} theme="primary" />
-      <span className={cls.item}>{menuTranslate[item.text]}</span>
+      <span className={classNames('', { [cls.active]: active }, [])}>
+        {menuTranslate[item.text]}
+      </span>
     </AppLink>
   );
 });

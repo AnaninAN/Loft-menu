@@ -4,3 +4,8 @@
   align-items: center;
   font: var(--font-l);
 }
+
+.active {
+  text-decoration-line: underline;
+  text-underline-offset: 10px;
+}
