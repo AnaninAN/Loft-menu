@@ -23,6 +23,7 @@ export const Counter = () => {
         theme="background_inverted"
         onClick={increment}
         data-testid="increment-btn"
+        // eslint-disable-next-line i18next/no-literal-string
       >
         increment
       </AppButton>
@@ -30,6 +31,7 @@ export const Counter = () => {
         theme="background_inverted"
         onClick={decrement}
         data-testid="decrement-btn"
+        // eslint-disable-next-line i18next/no-literal-string
       >
         decrement
       </AppButton>
