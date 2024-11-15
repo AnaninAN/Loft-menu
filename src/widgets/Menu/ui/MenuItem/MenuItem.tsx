@@ -35,7 +35,7 @@ export const MenuItem = memo((props: MenuItemProps) => {
       link={item.text !== 'MENU_CHAT'}
       onClick={() => onClick(item.text)}
     >
-      <AppIcon Svg={item.Icon} className={cls.icon} theme="primary" />
+      <AppIcon Svg={item.Icon} theme="primary" />
       <span className={classNames('', { [cls.active]: active }, [])}>
         {menuTranslate[item.text]}
       </span>

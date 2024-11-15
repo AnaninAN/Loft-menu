@@ -24,23 +24,14 @@ export const Header = (props: HeaderProps) => {
       className={classNames(cls.header, {}, [className])}
     >
       <AppContainer>
-        <AppText
-          theme="primary_inverted"
-          title={logo}
-          size="size_l"
-          className={cls.logo}
-        />
+        <AppText theme="primary_inverted" title={logo} size="size_l" />
         <AppText
           theme="primary_inverted"
           title="|"
           size="size_l"
           className={cls.separator}
         />
-        <AppText
-          theme="primary_inverted"
-          title={`${t('table')} ${table}`}
-          className={cls.table}
-        />
+        <AppText theme="primary_inverted" title={`${t('table')} ${table}`} />
         <LangSwitcher className={cls.selectLang} />
         <ThemSwitcher className={cls.selectTheme} />
       </AppContainer>
