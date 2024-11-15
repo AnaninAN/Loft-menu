@@ -19,6 +19,8 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'no-unused-expressions': 'off',
       '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
+      'no-undef': 'off',
     },
     settings: {
       react: {
