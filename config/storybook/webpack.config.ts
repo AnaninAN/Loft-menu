@@ -26,12 +26,14 @@ export default ({ config }: { config: Configuration }) => {
       React: 'react',
     })
   );
-
-  config.plugins!.push(
-    new DefinePlugin({
-      __IS_DEV__: JSON.stringify(true),
-    })
-  );
+  JSON.stringify(''),
+    config.plugins!.push(
+      new DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+        __API_URL__: JSON.stringify(''),
+        __PROJECT__: JSON.stringify('storybook'),
+      })
+    );
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   config.module!.rules = config?.module?.rules?.map((rule: any) => {

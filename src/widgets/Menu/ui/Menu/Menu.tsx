@@ -1,6 +1,7 @@
 import cls from './Menu.module.scss';
 
 import { memo, useCallback, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { getMenuItems } from '../../model/selectors/getMenuItems';
 import { MenuItem } from '../MenuItem/MenuItem';
@@ -9,19 +10,17 @@ import { ServerModal } from '@/widgets/ServerModal';
 
 type ActiveMenuType = Record<MenuList, boolean>;
 
-const resetActiveMenu: ActiveMenuType = {
-  MENU_MAIN: false,
-  MENU_CHAT: false,
-  MENU_CHECK: false,
-};
-
-const defaultActiveMenu: ActiveMenuType = {
-  MENU_MAIN: true,
-  MENU_CHAT: false,
-  MENU_CHECK: false,
-};
-
 export const Menu = memo(() => {
+  let { pathname } = useLocation();
+
+  const defaultActiveMenu = useCallback((): ActiveMenuType => {
+    return {
+      MENU_MAIN: /^\/\d+$/.test(pathname),
+      MENU_CHAT: false,
+      MENU_CHECK: /^\/\d+\/check$/.test(pathname),
+    };
+  }, [pathname]);
+
   const menuItemsList = getMenuItems();
   const [activeMenu, setActiveMenu] =
     useState<ActiveMenuType>(defaultActiveMenu);
@@ -29,9 +28,9 @@ export const Menu = memo(() => {
 
   const handleClick = useCallback(
     (text: string) => {
-      if (text !== ('MENU_CHAT' as MenuList)) {
-        setActiveMenu(resetActiveMenu);
-        setActiveMenu((prev) => ({ ...prev, [text]: true }));
+      if (text !== '/chat') {
+        pathname = text;
+        setActiveMenu(defaultActiveMenu);
       } else {
         setOpenModal(true);
       }

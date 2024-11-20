@@ -6,22 +6,22 @@ import { AppContainer } from '@/shared/ui/AppContainer';
 import { Footer } from '@/widgets/Footer';
 import { ContentPage } from '@/widgets/ContentPage';
 import { Navbar } from '@/widgets/Navbar';
-import { useInit } from '@/shared/lib/hooks/useInit/useInit';
+import { useTable } from '@/shared/lib/hooks/useTable/useTable';
 
 export const App = () => {
   useTheme();
-  useInit();
+  const table = useTable();
 
   return (
     <div className="app">
       <Suspense>
-        <Navbar />
+        {table && <Navbar />}
         <ContentPage>
           <AppContainer>
             <AppRouter />
           </AppContainer>
         </ContentPage>
-        <Footer />
+        {table && <Footer />}
       </Suspense>
     </div>
   );

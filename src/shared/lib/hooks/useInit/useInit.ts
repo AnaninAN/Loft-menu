@@ -1,12 +1,9 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-
 import { LOCALSTORAGE_TABLE_KEY } from '@/shared/const/localstorage';
 
-export function useInit(): void {
-  const { pathname } = useLocation();
+export interface UseInitProps {
+  id: string | undefined;
+}
 
-  useEffect(() => {
-    localStorage.setItem(LOCALSTORAGE_TABLE_KEY, pathname.slice(1));
-  }, []);
+export function useInit({ id }: UseInitProps): void {
+  id && localStorage.setItem(LOCALSTORAGE_TABLE_KEY, id);
 }

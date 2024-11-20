@@ -15,12 +15,9 @@ const preview: Preview = {
       },
     },
   },
-  initialGlobals: {
-    theme: Theme.LIGHT,
-  },
   decorators: [
     StyleDecorator,
-    ThemeDecorator,
+    ThemeDecorator(Theme.LIGHT),
     TranslationDecorator,
     RouterDecorator,
   ],

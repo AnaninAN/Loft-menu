@@ -3,6 +3,7 @@ import { fn } from '@storybook/test';
 
 import { AppButton } from './AppButton';
 import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta = {
   title: 'Shared/AppButton',
@@ -26,9 +27,7 @@ export const ButtonClearDark: Story = {
     children: 'Text',
     theme: 'clear',
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const ButtonClearInverted: Story = {
@@ -43,9 +42,7 @@ export const ButtonClearInvertedDark: Story = {
     children: 'AppButton',
     theme: 'clear_inverted',
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const ButtonBackground: Story = {
@@ -60,9 +57,7 @@ export const ButtonBackgroundDark: Story = {
     children: 'AppButton',
     theme: 'background',
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const ButtonBackgroundInverted: Story = {
@@ -77,9 +72,7 @@ export const ButtonBackgroundInvertedDark: Story = {
     children: 'AppButton',
     theme: 'background_inverted',
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const ButtonOutline: Story = {
@@ -94,9 +87,7 @@ export const ButtonOutlineDark: Story = {
     children: 'AppButton',
     theme: 'outline',
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const ButtonOutlineRed: Story = {
@@ -111,9 +102,7 @@ export const ButtonOutlineRedDark: Story = {
     children: 'AppButton',
     theme: 'outline_red',
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const ButtonClose: Story = {
@@ -126,7 +115,5 @@ export const ButtonCloseDark: Story = {
   args: {
     close: true,
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };

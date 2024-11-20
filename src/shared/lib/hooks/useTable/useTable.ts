@@ -1,7 +1,9 @@
-import { LOCALSTORAGE_TABLE_KEY } from '@/shared/const/localstorage';
+import { useSelector } from 'react-redux';
 
-export function useTable(): string | null {
-  const table = localStorage.getItem(LOCALSTORAGE_TABLE_KEY);
+import { getTable } from '@/entities/Table/model/selectors/getTable/getTable';
+
+export function useTable(): string | undefined {
+  const table = useSelector(getTable);
 
   return table;
 }

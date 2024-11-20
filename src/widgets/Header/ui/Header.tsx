@@ -7,16 +7,17 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppText } from '@/shared/ui/AppText';
 import { LangSwitcher } from '@/widgets/LangSwitcher';
 import { ThemSwitcher } from '@/widgets/ThemSwitcher';
+import { useTable } from '@/shared/lib/hooks/useTable/useTable';
 
 interface HeaderProps {
   className?: string;
   logo: string | null;
-  table: string | null;
 }
 
 export const Header = (props: HeaderProps) => {
   const { t } = useTranslation();
-  const { className, table, logo } = props;
+  const { className, logo } = props;
+  const table = useTable();
 
   return (
     <div

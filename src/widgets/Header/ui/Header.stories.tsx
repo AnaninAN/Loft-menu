@@ -3,6 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { LOGO } from '@/shared/const/const';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { getTableTest } from '@/shared/config/tests/mocks/data';
 
 const logo = LOGO;
 
@@ -13,22 +16,17 @@ const meta = {
   args: {
     logo,
   },
+  decorators: [StoreDecorator(getTableTest)],
 } satisfies Meta<typeof Header>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const HeaderLigth: Story = {
-  args: {
-    table: '5',
-  },
+  args: {},
 };
 
 export const HeaderDark: Story = {
-  args: {
-    table: '12',
-  },
-  globals: {
-    theme: Theme.DARK,
-  },
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK)],
 };

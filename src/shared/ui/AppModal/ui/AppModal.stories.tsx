@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { AppModal } from './AppModal';
 import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta = {
   title: 'Shared/AppModal',
@@ -23,7 +24,5 @@ export const ModalDark: Story = {
   args: {
     children: 'Модальное окно',
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };

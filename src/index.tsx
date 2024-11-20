@@ -11,18 +11,18 @@ import { StoreProvider } from '@/app/providers/StoreProvider';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <StoreProvider>
-    <BrowserRouter
-      future={{
-        v7_relativeSplatPath: true,
-        v7_startTransition: true,
-      }}
-    >
+  <BrowserRouter
+    future={{
+      v7_relativeSplatPath: true,
+      v7_startTransition: true,
+    }}
+  >
+    <StoreProvider>
       <ErrorBoundary>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </ErrorBoundary>
-    </BrowserRouter>
-  </StoreProvider>
+    </StoreProvider>
+  </BrowserRouter>
 );

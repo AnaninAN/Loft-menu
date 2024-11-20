@@ -6,6 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { AppIcon } from './AppIcon';
 import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta = {
   title: 'Shared/AppIcon',
@@ -27,9 +28,7 @@ export const MenuIconDark: Story = {
   args: {
     Svg: MenuIcon,
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const CheckIconLight: Story = {
@@ -42,9 +41,7 @@ export const CheckIconDark: Story = {
   args: {
     Svg: CheckIcon,
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const ChatIconLight: Story = {
@@ -57,7 +54,5 @@ export const ChatIconDark: Story = {
   args: {
     Svg: ChatIcon,
   },
-  globals: {
-    theme: Theme.DARK,
-  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };

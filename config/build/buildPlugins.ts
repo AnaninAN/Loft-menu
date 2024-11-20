@@ -8,7 +8,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins(options: BuildOptions): Configuration['plugins'] {
-  const { paths, isDev } = options;
+  const { paths, isDev, apiUrl, project } = options;
 
   const plugins: Configuration['plugins'] = [
     new HtmlWebpackPlugin({
@@ -20,7 +20,9 @@ export function buildPlugins(options: BuildOptions): Configuration['plugins'] {
       chunkFilename: 'css/[name].[contenthash:8].css',
     }),
     new DefinePlugin({
-      __IS__DEV__: JSON.stringify(isDev),
+      __IS_DEV__: JSON.stringify(isDev),
+      __API_URL__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
     new CopyPlugin({
       patterns: [{ from: paths.locales, to: paths.buildLocales }],

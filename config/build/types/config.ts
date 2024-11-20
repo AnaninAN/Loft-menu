@@ -1,6 +1,7 @@
 import { Configuration } from 'webpack';
 
 export type BuildMode = Configuration['mode'];
+export type ProjectType = 'frontend' | 'storybook' | 'jest';
 
 export interface BuildPaths {
   src: string;
@@ -16,9 +17,12 @@ export interface BuildOptions {
   paths: BuildPaths;
   isDev: boolean;
   port: number;
+  apiUrl: string;
+  project: ProjectType;
 }
 
 export interface BuildEnv {
   mode: BuildMode;
   port: number;
+  apiUrl: string;
 }
